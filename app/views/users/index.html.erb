@@ -7,7 +7,6 @@
     <tr>
       <th>Name</th>
       <th>Email</th>
-      <th>Address</th>
       <th>Active</th>
       <th colspan="3"></th>
     </tr>
@@ -16,18 +15,17 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
+        <td><%= link_to user.name, user%></td>
         <td><%= user.email %></td>
-        <td><%= user.address %></td>
         <td><%= user.active %></td>
             <td><%= pluralize(user.votes.count, "vote") %></td>
 
         <td><%= button_to '+1', upvote_user_path(user), method: :post %></td>
 
-        <td><%= link_to 'Show', user %></td>
+        <!--<td><%= link_to 'Show', user %></td>-->
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
 
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!--<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>
