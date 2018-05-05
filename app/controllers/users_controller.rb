@@ -61,6 +61,15 @@ class UsersController < ApplicationController
     end
   end
 
+  # 
+  def upvote
+    @user = User.find (params[:id])
+    @user.votes.create
+    redirect_to(users_path)
+
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
